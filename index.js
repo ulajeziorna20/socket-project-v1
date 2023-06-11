@@ -22,7 +22,8 @@ io.on('connection', function (socket) {
         let date = new Date()
         let time = date.getTime()
 
-        socket.send(time)
+        // emit tworzenie customowego zdarzenia
+        socket.emit('MyEvent', time)
     }, 2000)
 
 })
