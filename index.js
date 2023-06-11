@@ -4,17 +4,23 @@ const app = express()
 const http = require('http')
 const expressServer = http.createServer(app)
 
-const {Server} =  require('socket.io')
+const { Server } = require('socket.io')
 
 const io = new Server(expressServer)
 
+
+// tworzymy połączenie z serwerem poprzez socket.io. W socket.io cokolwiek co ma się zdarzyć nazywa się zdarzeniem. Zdarzenia serwerowe to 
+// connect * message * disconnect * reconnect * ping * join * leave
+// to sa juz zarezerwowane eventy, nie mozna zmienic ich nazw
+
+// zdarzenia na front których mozemy uzyc poprzez objekt socket to 
+// connect * connect_error * connect_timeout * reconnect
 io.on('connection', function (socket) {
     console.log('new user connected');
 
-
-    socket.on('disconnect', function (params) {
-        console.log('user diconnect');
-    })
+    setTimeout(function () {
+            socket.send('Hello Ula(server to the client)')
+    }, 10000)
 
 })
 
