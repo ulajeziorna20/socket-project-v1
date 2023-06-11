@@ -18,9 +18,12 @@ const io = new Server(expressServer)
 io.on('connection', function (socket) {
     console.log('new user connected');
 
-    setTimeout(function () {
-            socket.send('Hello Ula(server to the client)')
-    }, 10000)
+    setInterval(function () {
+        let date = new Date()
+        let time = date.getTime()
+
+        socket.send(time)
+    }, 2000)
 
 })
 
