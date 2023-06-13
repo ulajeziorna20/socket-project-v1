@@ -8,8 +8,9 @@
 </head>
 <body>
     
-
-    <h1 id="myTime">Easy socket project</h1>
+<!-- komunikacje client server zaczynamy oczywiście o stronie klienta -->
+   <input type="text" id="name">
+   <button id="send" onclick="send()">Send</button>
 
 
     <script src="/socket.io/socket.io.js"></script>
@@ -17,10 +18,12 @@
     <script >
         let socket = io()
 
-        socket.on('MyEvent', function (msg) {
-            document.getElementById('myTime').innerHTML = ''
-            document.getElementById('myTime').innerHTML =  msg
-        })
+
+        function send() {
+            let name = document.getElementById('name').value
+            alert(name)
+        }
+       
     </script>
 
 

@@ -18,13 +18,7 @@ const io = new Server(expressServer)
 io.on('connection', function (socket) {
     console.log('new user connected');
 
-    setInterval(function () {
-        let date = new Date()
-        let time = date.getTime()
-
-        // emit tworzenie customowego zdarzenia
-        socket.emit('MyEvent', time)
-    }, 2000)
+ 
 
 })
 
